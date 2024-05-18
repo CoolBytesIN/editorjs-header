@@ -1,29 +1,44 @@
-.cb-delimiter {
-	line-height: 1.6em;
-	width: 100%;
-	text-align: center;
-	color: black;
+.ce-header {
+	padding: 0.6em 0 3px;
+	margin: 0;
+	line-height: 1.25em;
+	outline: none;
+	word-wrap: anywhere;
 }
 
-/* Delimiter styles */
-.cb-delimiter-star span {
-	font-size: 30px;
-	line-height: 65px;
-	display: inline-block;
-	height: 30px;
-	letter-spacing: 0.2em;
-	font-weight: 900;
+.ce-header p,
+.ce-header div {
+	padding: 0 !important;
+	margin: 0 !important;
 }
-.cb-delimiter-dash span {
-	margin: 10px;
-	display: inline-block;
-	height: 30px;
-	letter-spacing: 0.6em;
-	font-weight: 900;
+
+.ce-header[contentEditable='true'][data-placeholder]::before {
+	position: absolute;
+	content: attr(data-placeholder);
+	color: #707684;
+	font-weight: normal;
+	display: none;
+	cursor: text;
 }
-.cb-delimiter-line hr {
-	font-size: 48px;
-	border-style: solid;
-	border-color: black;
-	border-radius: 3px;
+
+.ce-header[contentEditable='true'][data-placeholder]:empty::before {
+	display: block;
+}
+
+.ce-header[contentEditable='true'][data-placeholder]:empty:focus::before {
+	display: none;
+}
+
+/* Alignment*/
+.ce-header-align-left {
+	text-align: left;
+}
+.ce-header-align-center {
+	text-align: center;
+}
+.ce-header-align-right {
+	text-align: right;
+}
+.ce-header-align-justify {
+	text-align: justify;
 }
