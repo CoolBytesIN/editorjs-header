@@ -396,25 +396,19 @@ export default class Header {
    * @returns {[{*}]}
    */
   renderSettings() {
-    let headerTypes = []
-    if (this.availableLevels.length > 1) {
-      headerTypes = this.availableLevels.map((level) => 
-        this._createSetting(
-          level.icon, this._getFormattedLabel(level.id, 'Heading '), () => this._setHeaderLevel(level.id), 
-          level.id === this.currentLevel.id, 'heading'
-        )
-      );
-    }
+    const headerTypes = this.availableLevels.map((level) => 
+      this._createSetting(
+        level.icon, this._getFormattedLabel(level.id, 'Heading '), () => this._setHeaderLevel(level.id), 
+        level.id === this.currentLevel.id, 'heading'
+      )
+    );
 
-    let alignTypes = []
-    if (this.availableAlignTypes.length > 1) {
-      alignTypes = this.availableAlignTypes.map((align) => 
-        this._createSetting(
-          getAlignmentIcon(align), this._getFormattedLabel(align), () => this._setAlignType(align), 
-          align === this.currentAlignType, 'align'
-        )
-      );
-    }
+    const alignTypes = this.availableAlignTypes.map((align) => 
+      this._createSetting(
+        getAlignmentIcon(align), this._getFormattedLabel(align), () => this._setAlignType(align), 
+        align === this.currentAlignType, 'align'
+      )
+    );
 
     return [...headerTypes, ...alignTypes];
   }
